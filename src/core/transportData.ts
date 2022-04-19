@@ -33,10 +33,6 @@ class TransportData {
       // todo  对当前的xhr做配置
       // const errorID  =createErrorID(data)
       xhr.send(JSON.stringify(this.getTransportData(data)));
-      xhr.addEventListener('loadend', function () {
-        console.log(this, 111);
-      });
-      console.log(xhr);
     };
     this.queue.addFn(handler);
   }

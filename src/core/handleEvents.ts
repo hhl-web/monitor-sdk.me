@@ -75,7 +75,4 @@ export const handleEvents = {
   handleHistory(data: { to: string; from: string }) {
     console.log(data);
   },
-  // handleConsole(data: any) {
-  //   console.log(data);
-  // },
 };

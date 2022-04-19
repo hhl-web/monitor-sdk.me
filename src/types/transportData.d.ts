@@ -14,11 +14,11 @@ export interface TransportDataType {
 export interface ReportDataType {
   type?: ERRORTYPES;
   message?: string;
-  pageUrl: string;
+  pageUrl?: string;
   name?: string;
   time?: number;
   errorId?: number;
-  level: number;
+  level?: number;
   stack?: any;
   // ajax
   elapsedTime?: number;
@@ -37,4 +37,14 @@ export interface ReportDataType {
   componentName?: string;
   propsData?: any;
   info?: string;
+  // performance
+  sourceType?:string,
+  dns?:number,
+  tcp?:number,
+  redirect?:number,
+  duration?:number,
+  protocol?: string, // 请求协议
+  responseBodySize?:number, // 响应内容大小
+  startTime?:number
+  responseHeaderSize?:number
 }

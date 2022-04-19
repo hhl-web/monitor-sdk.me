@@ -28,11 +28,12 @@ export const getSilent=(slientType:EVENTTYPES):boolean=>{
 export const setSilentHandler =(opitons:MonitorOptions ={}):void=>{
     setSilent(EVENTTYPES.XHR, !!opitons.silentXhr)
     setSilent(EVENTTYPES.FETCH, !!opitons.silentFetch)
-    setSilent(EVENTTYPES.CONSOLE, !!opitons.silentConsole)
     setSilent(EVENTTYPES.DOM, !!opitons.silentDom)
     setSilent(EVENTTYPES.HISTORY, !!opitons.silentHistory)
     setSilent(EVENTTYPES.ERROR, !!opitons.silentError)
     setSilent(EVENTTYPES.HASHCHANGE, !!opitons.silentHashchange)
     setSilent(EVENTTYPES.UNHANDLEDREJECTION, !!opitons.silentUnhandledrejection)
     setSilent(EVENTTYPES.VUE, !!opitons.silentVue)
+    setSilent(EVENTTYPES.PAGEPERFORMANCE, !!opitons.slientPagePerformance)
+    setSilent(EVENTTYPES.RESOURCEPERFORMANCE, !!opitons.slientResourcePerformance)
 }

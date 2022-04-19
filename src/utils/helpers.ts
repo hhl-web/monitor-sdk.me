@@ -1,5 +1,5 @@
-import { VoidFn } from '@/common';
-
+import { VoidFn,IPerCallback } from '@/common';
+import { _globalThis } from './global';
 export const replaceOld = (
   source: {
     [key: string]: any;
@@ -112,7 +112,6 @@ export const throttle = (fn: Function, warting: number, isFirst?: boolean) => {
 };
 
 export const htmlPathAsInfo = (path: any[]) => {
-  console.log(path);
   const html: HTMLElement = path[0];
   const { nodeName, baseURI, attributes, outerHTML } = html;
   return {
@@ -122,3 +121,46 @@ export const htmlPathAsInfo = (path: any[]) => {
     outerHTML,
   };
 };
+
+export const isSupportPerformanceObserver=():boolean=>{
+  return !!_globalThis.PerformanceObserver;
+}
+
+export const getObserver = (type: string, cb: IPerCallback) => {
+  const perfObserver = new PerformanceObserver((entryList) => {
+    cb(entryList.getEntries())
+  })
+  perfObserver.observe({ type, buffered: true })
+}
+export let hiddenTime = document.visibilityState === 'hidden' ? 0 : Infinity
+
+export const scores: Record<string, number[]> = {
+  fcp: [2000, 4000],
+  lcp: [2500, 4500],
+  fid: [100, 300],
+  tbt: [300, 600],
+  cls: [0.1, 0.25],
+}
+
+export const scoreLevel = ['good', 'needsImprovement', 'poor']
+
+export const getScore = (type: string, data: number) => {
+  const score = scores[type]
+  for (let i = 0; i < score.length; i++) {
+    if (data <= score[i]) return scoreLevel[i]
+  }
+
+  return scoreLevel[2]
+}
+// 加载完毕
+export const executeAfterLoad =(cb:VoidFn):void=>{
+  if (document.readyState === 'complete') {
+    cb();
+} else {
+    const onLoad = () => {
+      cb()
+        _globalThis.removeEventListener('load', onLoad, true)
+    }
+    _globalThis.addEventListener('load', onLoad, true)
+  }
+}

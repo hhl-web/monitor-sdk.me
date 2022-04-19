@@ -9,13 +9,15 @@ export interface MonitorOptions extends SilentEventTyps, HooksTypes {
 export interface SilentEventTyps {
   silentXhr?: boolean; // Xhr事件
   silentFetch?: boolean; //fetch事件
-  silentConsole?: boolean; //console事件
+  // silentConsole?: boolean; //console事件
   silentDom?: boolean; //Dom事件
   silentHistory?: boolean; //history事件
   silentError?: boolean; //error事件
   silentUnhandledrejection?: boolean; //unhandledrejection事件
   silentHashchange?: boolean; //监控hashchange事件
   silentVue?: boolean; //监控Vue.warn函数
+  slientPagePerformance?:boolean;  //页面性能数据
+  slientResourcePerformance?:boolean //资源加载数据
 }
 
 export interface HooksTypes {

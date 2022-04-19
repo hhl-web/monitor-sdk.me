@@ -1,6 +1,6 @@
 import { addModuleHandler, handleEvents } from 'core';
 import { EVENTTYPES } from '@/common';
-
+import { perforProcessor } from 'performance';
 export const loadModule = (timeout?: number): void => {
   // xhr
   addModuleHandler({
@@ -30,14 +30,6 @@ export const loadModule = (timeout?: number): void => {
     },
     type: EVENTTYPES.DOM,
   });
-  // console
-  //   addModuleHandler({
-  //     cb: (data: any) => {
-  //       return;
-  //       //   handleEvents.handleConsole(data);
-  //     },
-  //     type: EVENTTYPES.CONSOLE,
-  //   });
   // hashChange
   addModuleHandler({
     cb: (data: any) => {
@@ -64,4 +56,7 @@ export const loadModule = (timeout?: number): void => {
     cb: (data: any) => {},
     type: EVENTTYPES.VUE,
   });
+  // 性能监控
+  perforProcessor.perforPage();
+  perforProcessor.peforResource();
 };

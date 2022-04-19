@@ -88,22 +88,6 @@ export const replaceFetch = (): void => {
     };
   });
 };
-// console
-export const replaceConsole = (): void => {
-  // if (!('console' in _globalThis)) return;
-  // const types = ['assert', 'log', 'warn', 'debug', 'error', 'info'];
-  // types.forEach((type: string): void => {
-  //   if (!(type in _globalThis.console)) return;
-  //   replaceOld(_globalThis.console, type, (originalConsole: () => any): Function => {
-  //     return function (...args: any[]): void {
-  //       if (originalConsole) {
-  //         triggerModuleHandler(EVENTTYPES.CONSOLE, { args, level: type });
-  //         originalConsole.apply(_globalThis.console, args);
-  //       }
-  //     };
-  //   });
-  // });
-};
 // error
 export const replaceListenError = (): void => {
   on(

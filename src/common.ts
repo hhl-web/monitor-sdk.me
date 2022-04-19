@@ -8,6 +8,8 @@ export enum EVENTTYPES {
   HASHCHANGE = 'hashchange',
   UNHANDLEDREJECTION = 'unhandledrejection',
   VUE = 'Vue',
+  PAGEPERFORMANCE="pageperformance",
+  RESOURCEPERFORMANCE="ResourcePerformance"
 }
 
 export enum ERRORLEVEL {
@@ -46,3 +48,5 @@ export enum ERRORTYPES {
   RESOURCE_ERROR = 'resource_error',
   PROMISE_ERROR = 'promise_error',
 }
+
+export type IPerCallback = (entries: any[]) => void

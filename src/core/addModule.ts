@@ -4,7 +4,6 @@ import { getSilent, setSilent, throttle } from 'utils';
 import {
   replaceXhr,
   replaceFetch,
-  replaceConsole,
   replaceListenError,
   replaceHashChange,
   replaceHistory,
@@ -43,9 +42,6 @@ export const replace = (type: EVENTTYPES) => {
       break;
     case EVENTTYPES.FETCH:
       replaceFetch();
-      break;
-    case EVENTTYPES.CONSOLE:
-      replaceConsole();
       break;
     case EVENTTYPES.ERROR:
       replaceListenError();

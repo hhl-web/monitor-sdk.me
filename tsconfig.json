@@ -17,6 +17,9 @@
         "core": [
           "core/index"
         ],
+        "performance":[
+          "performance/index"
+        ],
         "@/*": [
           "./*"
         ]
@@ -26,9 +29,9 @@
       ],
       "target": "ES2020", // 编译成什么版本
       "module": "ES2015", // 指定生成哪个模块系统代码
-      "outDir": "./dist/", // 输出目录
+      "outDir": "./lib/", // 输出目录
       "declaration": true, // 是否自动创建类型声明文件
-      "declarationDir": "./dist/types/", // 类型声明文件的输出目录
+      "declarationDir": "./lib/types/", // 类型声明文件的输出目录
       "typeRoots": [ // 指定某个文件夹的声明文件
         "node_modules/@types"
       ],

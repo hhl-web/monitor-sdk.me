@@ -2,6 +2,7 @@ import { MonitorOptions } from '@/types/monitor';
 import { setSilentHandler } from 'utils';
 import { loadModule } from './module';
 import { transportData } from 'core';
+import {perforProcessor} from 'performance'
 class Monitor {
   private monitorOpts: MonitorOptions = {};
   constructor(options: MonitorOptions = {}) {
@@ -16,6 +17,7 @@ class Monitor {
   private bindOptions() {
     setSilentHandler(this.monitorOpts);
     transportData.bindOptions(this.monitorOpts);
+    perforProcessor.bindOptions(this.monitorOpts);
   }
 }
 
