@@ -38,6 +38,7 @@ export interface ReportDataType {
   propsData?: any;
   info?: string;
   // performance
+  entryType?:string,
   sourceType?:string,
   dns?:number,
   tcp?:number,
@@ -46,5 +47,6 @@ export interface ReportDataType {
   protocol?: string, // 请求协议
   responseBodySize?:number, // 响应内容大小
   startTime?:number
-  responseHeaderSize?:number
+  responseHeaderSize?:number,
+  
 }

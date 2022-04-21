@@ -126,6 +126,7 @@ export const isSupportPerformanceObserver=():boolean=>{
   return !!_globalThis.PerformanceObserver;
 }
 
+// 监听器
 export const getObserver = (type: string, cb: IPerCallback) => {
   const perfObserver = new PerformanceObserver((entryList) => {
     cb(entryList.getEntries())
@@ -134,6 +135,7 @@ export const getObserver = (type: string, cb: IPerCallback) => {
 }
 export let hiddenTime = document.visibilityState === 'hidden' ? 0 : Infinity
 
+// 性能指标数据
 export const scores: Record<string, number[]> = {
   fcp: [2000, 4000],
   lcp: [2500, 4500],
@@ -141,7 +143,7 @@ export const scores: Record<string, number[]> = {
   tbt: [300, 600],
   cls: [0.1, 0.25],
 }
-
+// 指标水平
 export const scoreLevel = ['good', 'needsImprovement', 'poor']
 
 export const getScore = (type: string, data: number) => {
@@ -151,16 +153,4 @@ export const getScore = (type: string, data: number) => {
   }
 
   return scoreLevel[2]
-}
-// 加载完毕
-export const executeAfterLoad =(cb:VoidFn):void=>{
-  if (document.readyState === 'complete') {
-    cb();
-} else {
-    const onLoad = () => {
-      cb()
-        _globalThis.removeEventListener('load', onLoad, true)
-    }
-    _globalThis.addEventListener('load', onLoad, true)
-  }
 }

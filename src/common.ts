@@ -9,7 +9,10 @@ export enum EVENTTYPES {
   UNHANDLEDREJECTION = 'unhandledrejection',
   VUE = 'Vue',
   PAGEPERFORMANCE="pageperformance",
-  RESOURCEPERFORMANCE="ResourcePerformance"
+  RESOURCEPERFORMANCE="ResourcePerformance",
+  RESOURCEPERFOR="resourceperfor",
+  PAGEPERFOR="pageperfor",
+  CUSTOMER="customer"
 }
 
 export enum ERRORLEVEL {
@@ -47,6 +50,7 @@ export enum ERRORTYPES {
   JAVASCRIPT_ERROR = 'javascript_error',
   RESOURCE_ERROR = 'resource_error',
   PROMISE_ERROR = 'promise_error',
+  CUSTOMER_ERROR='customer_error'
 }
 
 export type IPerCallback = (entries: any[]) => void

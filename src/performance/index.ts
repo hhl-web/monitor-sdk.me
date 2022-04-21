@@ -1,6 +1,6 @@
 import {MonitorOptions} from '@/types/monitor';
-import {_globalThis,Queue,executeAfterLoad,isSupportPerformanceObserver} from 'utils';
-import {getResourceTime} from './observer'
+import {_globalThis,Queue,isSupportPerformanceObserver} from 'utils';
+import {getResourceTime,getNetworkInfo,getPaintTime,getFID,getLCP,getCLS,getTTI} from './observer'
 class PeforProcessor{
     private pageFlag:boolean;
     private resourceFlag:boolean;
@@ -13,11 +13,17 @@ class PeforProcessor{
         if(this.resourceFlag) return;
         if(!isSupportPerformanceObserver()) return;
         getResourceTime();
+        getNetworkInfo();
     }
     // 页面性能
     perforPage(){
         if(this.pageFlag) return;
-       
+        if(!isSupportPerformanceObserver()) return;
+        getPaintTime();
+        getFID();
+        getLCP();
+        getCLS();
+        getTTI()
     }
 
     bindOptions(options:MonitorOptions){
